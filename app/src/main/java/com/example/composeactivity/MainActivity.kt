@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -15,6 +16,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.composeactivity.components.MyButton
 import com.example.composeactivity.components.MyCheckBoxWithTextCompleted
 import com.example.composeactivity.components.MyIcon
@@ -31,6 +33,8 @@ import com.example.composeactivity.components.MyTextFieldAdvance
 import com.example.composeactivity.components.MyTextFieldOutlined
 import com.example.composeactivity.components.MyTriStatusCheckbox
 import com.example.composeactivity.components.getOptions
+import com.example.composeactivity.logininsta.Header
+import com.example.composeactivity.logininsta.LoginScreen
 import com.example.composeactivity.ui.theme.ComposeActivityTheme
 
 class MainActivity : ComponentActivity() {
@@ -38,14 +42,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-
             ComposeActivityTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     color = MaterialTheme.colorScheme.background
                     // modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
-                    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    /** COMPONENTS.KT **/
+                    //Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                         /** TEXT y TEXTFIELD **/
                         // MyText()
                         // MyTextField(name = , onValueChanged = )
@@ -106,7 +110,13 @@ class MainActivity : ComponentActivity() {
                             // MyCustomDialog(show = showAlert, onDismiss = { showAlert = false })
                             // MyConfirmDialog(show = showAlert, onDismiss = { showAlert = false })
                         }*/
-                    }
+                    // }
+                    // Fin COMPONENTS.KT
+
+                    /** LOGIN INSTAGRAM **/
+                    LoginScreen()
+
+
                 }
             }
         }
@@ -117,6 +127,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     ComposeActivityTheme {
-
+        LoginScreen()
     }
 }
