@@ -59,7 +59,6 @@ fun LoginScreen() {
     }
 }
 
-
 @Composable
 fun Header(modifier: Modifier) {
     val activity = LocalContext.current as Activity

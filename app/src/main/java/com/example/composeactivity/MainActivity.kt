@@ -33,6 +33,7 @@ import com.example.composeactivity.components.MyTextFieldAdvance
 import com.example.composeactivity.components.MyTextFieldOutlined
 import com.example.composeactivity.components.MyTriStatusCheckbox
 import com.example.composeactivity.components.getOptions
+import com.example.composeactivity.ejertuit.TuitComponent
 import com.example.composeactivity.logininsta.Header
 import com.example.composeactivity.logininsta.LoginScreen
 import com.example.composeactivity.ui.theme.ComposeActivityTheme
@@ -80,10 +81,11 @@ class MainActivity : ComponentActivity() {
                         // ¿? MyCheckBoxWithTextCompleted(getOptions(titles = "Paco"))
 
                         /** RADIOBUTTON **/
+                        /*
                         var selected by remember {
                             mutableStateOf("Yo")
                         }
-
+                        */
                         // MyRadioButton()
                         // MyRadioButtonList(selected) { selected = it }
 
@@ -98,11 +100,12 @@ class MainActivity : ComponentActivity() {
                         // MyAdvancedSlider()
 
                         /** DIALOGS **/
+                        /*
                         var showAlert by remember {
                             mutableStateOf(false)
                         }
 
-                        /*
+
                         Button(onClick = { showAlert = true }) {
                             Text(text = "Mostrar")
                             // MyAlertDialog(show = showAlert, onDismiss = { showAlert = false }, onConfirm = { Log.i("pablo", "toquere") })
@@ -114,9 +117,10 @@ class MainActivity : ComponentActivity() {
                     // Fin COMPONENTS.KT
 
                     /** LOGIN INSTAGRAM **/
-                    LoginScreen()
+                    // LoginScreen()
 
-
+                    /** EJERCICIO TUITS **/
+                    TuitComponent()
                 }
             }
         }
@@ -127,6 +131,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     ComposeActivityTheme {
-        LoginScreen()
+        TuitComponent()
     }
 }
