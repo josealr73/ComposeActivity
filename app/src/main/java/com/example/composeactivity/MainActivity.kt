@@ -36,6 +36,9 @@ import com.example.composeactivity.components.getOptions
 import com.example.composeactivity.ejertuit.TuitComponent
 import com.example.composeactivity.logininsta.Header
 import com.example.composeactivity.logininsta.LoginScreen
+import com.example.composeactivity.recyclerview.SimpleRecyclerView
+import com.example.composeactivity.recyclerview.SuperHeroGridView
+import com.example.composeactivity.recyclerview.SuperHeroView
 import com.example.composeactivity.ui.theme.ComposeActivityTheme
 
 class MainActivity : ComponentActivity() {
@@ -105,7 +108,6 @@ class MainActivity : ComponentActivity() {
                             mutableStateOf(false)
                         }
 
-
                         Button(onClick = { showAlert = true }) {
                             Text(text = "Mostrar")
                             // MyAlertDialog(show = showAlert, onDismiss = { showAlert = false }, onConfirm = { Log.i("pablo", "toquere") })
@@ -120,7 +122,12 @@ class MainActivity : ComponentActivity() {
                     // LoginScreen()
 
                     /** EJERCICIO TUITS **/
-                    TuitComponent()
+                    // TuitComponent()
+
+                    /** RECYCLER VIEW **/
+                    // SimpleRecyclerView()
+                    // SuperHeroView()
+                    SuperHeroGridView()
                 }
             }
         }
@@ -131,6 +138,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     ComposeActivityTheme {
-        TuitComponent()
+        SuperHeroGridView()
     }
 }
