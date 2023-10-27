@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavHostController
+import com.example.composeactivity.model.Routes
 
 @Composable
 fun Screen1(navigationController: NavHostController) {
@@ -17,13 +18,12 @@ fun Screen1(navigationController: NavHostController) {
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Cyan)
-    )
-    {
+    ) {
         Text(
             text = "Pantalla 1",
             modifier = Modifier
                 .align(Alignment.Center)
-                .clickable { navigationController.navigate("screen2") })
+                .clickable { navigationController.navigate(Routes.Pantalla2.route) })
     }
 }
 
@@ -33,10 +33,10 @@ fun Screen2(navigationController: NavHostController) {
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Green)
-            .clickable { navigationController.navigate("screen3") })
-
-
-    {
+            .clickable {
+                navigationController.navigate(Routes.Pantalla3.route)
+            }
+    ) {
         Text(text = "Pantalla 2", modifier = Modifier.align(Alignment.Center))
     }
 }
@@ -47,8 +47,46 @@ fun Screen3(navigationController: NavHostController) {
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Magenta)
-    )
-    {
-        Text(text = "Pantalla 3", modifier = Modifier.align(Alignment.Center))
+            .clickable {
+                navigationController.navigate(Routes.Pantalla1.route)
+            }
+    ) {
+        Text(
+            text = "Pantalla 3",
+            modifier = Modifier
+                .align(Alignment.Center)
+                .clickable { navigationController.navigate(Routes.Pantalla4.createRoute(45)) })
+    }
+}
+
+@Composable
+fun Screen4(navigationController: NavHostController, age: Int) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Yellow)
+            .clickable {
+                navigationController.navigate(Routes.Pantalla5.route)
+            }
+    ) {
+        Text(text = "Tengo $age años", modifier = Modifier
+            .align(Alignment.Center)
+            .clickable {
+                navigationController.navigate(Routes.Pantalla5.createRoute("PacoPepe"))
+            })
+    }
+}
+
+@Composable
+fun Screen5(navigationController: NavHostController, name: String?) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Green)
+            .clickable {
+                navigationController.navigate(Routes.Pantalla1.route)
+            }
+    ) {
+        Text(text = "Me llamo $name", modifier = Modifier.align(Alignment.Center))
     }
 }

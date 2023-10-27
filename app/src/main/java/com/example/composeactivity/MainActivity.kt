@@ -9,13 +9,18 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.composeactivity.components.MyScaffold
 import com.example.composeactivity.components.Screen1
 import com.example.composeactivity.components.Screen2
 import com.example.composeactivity.components.Screen3
+import com.example.composeactivity.components.Screen4
+import com.example.composeactivity.components.Screen5
+import com.example.composeactivity.model.Routes
 import com.example.composeactivity.ui.theme.ComposeActivityTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,67 +35,67 @@ class MainActivity : ComponentActivity() {
                 ) {
                     /** COMPONENTS **/
                     //Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                        /** TEXT y TEXTFIELD **/
-                        // MyText()
-                        // MyTextField(name = , onValueChanged = )
-                        // MyTextFieldAdvance()
-                        // MyTextFieldOutlined()
+                    /** TEXT y TEXTFIELD **/
+                    // MyText()
+                    // MyTextField(name = , onValueChanged = )
+                    // MyTextFieldAdvance()
+                    // MyTextFieldOutlined()
 
-                        /** BUTTON **/
-                        // MyButton()
-                        // MyOutlinedButton()
-                        // MyTextButton()
+                    /** BUTTON **/
+                    // MyButton()
+                    // MyOutlinedButton()
+                    // MyTextButton()
 
-                        /** IMAGE **/
-                        // MyIcon()
-                        // MyImage()
-                        // MyImageAdvance()
+                    /** IMAGE **/
+                    // MyIcon()
+                    // MyImage()
+                    // MyImageAdvance()
 
-                        /** PROGRESSBAR **/
-                        // MyProgress()
-                        // MyProgressAdvance()
+                    /** PROGRESSBAR **/
+                    // MyProgress()
+                    // MyProgressAdvance()
 
-                        /** SWITCH **/
-                        // MySwitch()
+                    /** SWITCH **/
+                    // MySwitch()
 
-                        /** CHECKBOX **/
-                        // MyCheckBox()
-                        // MyCheckBoxWithText()
-                        // MyTriStatusCheckbox()
-                        // ¿? MyCheckBoxWithTextCompleted(getOptions(titles = "Paco"))
+                    /** CHECKBOX **/
+                    // MyCheckBox()
+                    // MyCheckBoxWithText()
+                    // MyTriStatusCheckbox()
+                    // ¿? MyCheckBoxWithTextCompleted(getOptions(titles = "Paco"))
 
-                        /** RADIOBUTTON **/
-                        /*
-                        var selected by remember {
-                            mutableStateOf("Yo")
-                        }
-                        */
-                        // MyRadioButton()
-                        // MyRadioButtonList(selected) { selected = it }
+                    /** RADIOBUTTON **/
+                    /*
+                    var selected by remember {
+                        mutableStateOf("Yo")
+                    }
+                    */
+                    // MyRadioButton()
+                    // MyRadioButtonList(selected) { selected = it }
 
-                        /** OTHER COMPONENTS **/
-                        // MyCard()
-                        // MyBadgeBox()
-                        // MyDivider()
-                        // MyDropDownMenu()
+                    /** OTHER COMPONENTS **/
+                    // MyCard()
+                    // MyBadgeBox()
+                    // MyDivider()
+                    // MyDropDownMenu()
 
-                        /** SLIDER **/
-                        // MyBasicSlider()
-                        // MyAdvancedSlider()
+                    /** SLIDER **/
+                    // MyBasicSlider()
+                    // MyAdvancedSlider()
 
-                        /** DIALOGS **/
-                        /*
-                        var showAlert by remember {
-                            mutableStateOf(false)
-                        }
+                    /** DIALOGS **/
+                    /*
+                    var showAlert by remember {
+                        mutableStateOf(false)
+                    }
 
-                        Button(onClick = { showAlert = true }) {
-                            Text(text = "Mostrar")
-                            // MyAlertDialog(show = showAlert, onDismiss = { showAlert = false }, onConfirm = { Log.i("pablo", "toquere") })
-                            // MySimpleCustomDialog(show = showAlert, onDismiss = { showAlert = false } )
-                            // MyCustomDialog(show = showAlert, onDismiss = { showAlert = false })
-                            // MyConfirmDialog(show = showAlert, onDismiss = { showAlert = false })
-                        }*/
+                    Button(onClick = { showAlert = true }) {
+                        Text(text = "Mostrar")
+                        // MyAlertDialog(show = showAlert, onDismiss = { showAlert = false }, onConfirm = { Log.i("pablo", "toquere") })
+                        // MySimpleCustomDialog(show = showAlert, onDismiss = { showAlert = false } )
+                        // MyCustomDialog(show = showAlert, onDismiss = { showAlert = false })
+                        // MyConfirmDialog(show = showAlert, onDismiss = { showAlert = false })
+                    }*/
                     // }
                     // Fin COMPONENTS.KT
 
@@ -114,17 +119,39 @@ class MainActivity : ComponentActivity() {
                     /** NAVIGATION **/
                     // Controla los estados de la navegación
                     val navigationController = rememberNavController()
-                    NavHost(navController = navigationController, startDestination = "screen1"){
-                        composable("screen1"){
+                    NavHost(
+                        navController = navigationController,
+                        startDestination = Routes.Pantalla1.route
+                    ) {
+                        composable(Routes.Pantalla1.route) {
                             Screen1(navigationController)
                         }
 
-                        composable("screen2"){
+                        composable(Routes.Pantalla2.route) {
                             Screen2(navigationController)
                         }
 
-                        composable("screen3"){
+                        composable(Routes.Pantalla3.route) {
                             Screen3(navigationController)
+                        }
+
+                        composable(
+                            Routes.Pantalla4.route,
+                            arguments = listOf(navArgument("age") { type = NavType.IntType })
+                        ) { backStackEntry ->
+                            Screen4(
+                                navigationController, backStackEntry.arguments?.getInt("age") ?: 0
+                            )
+                        }
+
+                        composable(
+                            Routes.Pantalla5.route,
+                            arguments = listOf(navArgument("name", { defaultValue = "" }))
+                        ) { backStackEntry ->
+                            Screen5(
+                                navigationController,
+                                backStackEntry.arguments?.getString("name")
+                            )
                         }
                     }
                 }
@@ -138,5 +165,41 @@ class MainActivity : ComponentActivity() {
 fun GreetingPreview() {
     ComposeActivityTheme {
 
+        val navigationController = rememberNavController()
+        NavHost(
+            navController = navigationController,
+            startDestination = Routes.Pantalla1.route
+        ) {
+            composable(Routes.Pantalla1.route) {
+                Screen1(navigationController)
+            }
+
+            composable(Routes.Pantalla2.route) {
+                Screen2(navigationController)
+            }
+
+            composable(Routes.Pantalla3.route) {
+                Screen3(navigationController)
+            }
+
+            composable(
+                Routes.Pantalla4.route,
+                arguments = listOf(navArgument("age") { type = NavType.IntType })
+            ) { backStackEntry ->
+                Screen4(
+                    navigationController, backStackEntry.arguments?.getInt("age") ?: 0
+                )
+            }
+
+            composable(
+                Routes.Pantalla5.route,
+                arguments = listOf(navArgument("name", { defaultValue = "" }))
+            ) { backStackEntry ->
+                Screen5(
+                    navigationController,
+                    backStackEntry.arguments?.getString("name")
+                )
+            }
+        }
     }
 }

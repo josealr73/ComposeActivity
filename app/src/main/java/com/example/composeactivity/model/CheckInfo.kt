@@ -1,4 +1,4 @@
-package com.example.composeactivity.dataclass
+package com.example.composeactivity.model
 
 data class CheckInfo(
     val title: String,
