@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -20,6 +21,7 @@ import com.example.composeactivity.components.Screen2
 import com.example.composeactivity.components.Screen3
 import com.example.composeactivity.components.Screen4
 import com.example.composeactivity.components.Screen5
+import com.example.composeactivity.logininsta.LoginScreen
 import com.example.composeactivity.model.Routes
 import com.example.composeactivity.ui.theme.ComposeActivityTheme
 
@@ -100,7 +102,7 @@ class MainActivity : ComponentActivity() {
                     // Fin COMPONENTS.KT
 
                     /** LOGIN INSTAGRAM **/
-                    // LoginScreen()
+                    LoginScreen()
 
                     /** EJERCICIO TUITS **/
                     // TuitComponent()
@@ -118,7 +120,8 @@ class MainActivity : ComponentActivity() {
 
                     /** NAVIGATION **/
                     // Controla los estados de la navegación
-                    val navigationController = rememberNavController()
+
+/*                    val navigationController = rememberNavController()
                     NavHost(
                         navController = navigationController,
                         startDestination = Routes.Pantalla1.route
@@ -154,7 +157,7 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                     }
-                }
+                }*/
             }
         }
     }
@@ -164,7 +167,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     ComposeActivityTheme {
-
+        //LoginScreen()
+        /** NAVIGATION **/
+        /*
         val navigationController = rememberNavController()
         NavHost(
             navController = navigationController,
@@ -200,6 +205,7 @@ fun GreetingPreview() {
                     backStackEntry.arguments?.getString("name")
                 )
             }
+            */
         }
     }
 }
