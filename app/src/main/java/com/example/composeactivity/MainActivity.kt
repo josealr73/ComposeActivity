@@ -22,6 +22,7 @@ import com.example.composeactivity.components.Screen3
 import com.example.composeactivity.components.Screen4
 import com.example.composeactivity.components.Screen5
 import com.example.composeactivity.logininsta.LoginScreen
+import com.example.composeactivity.logininsta.LoginViewModel
 import com.example.composeactivity.model.Routes
 import com.example.composeactivity.ui.theme.ComposeActivityTheme
 
@@ -102,7 +103,7 @@ class MainActivity : ComponentActivity() {
                     // Fin COMPONENTS.KT
 
                     /** LOGIN INSTAGRAM **/
-                    LoginScreen()
+                    LoginScreen(LoginViewModel())
 
                     /** EJERCICIO TUITS **/
                     // TuitComponent()
@@ -167,7 +168,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     ComposeActivityTheme {
-        //LoginScreen()
+        LoginScreen(LoginViewModel())
         /** NAVIGATION **/
         /*
         val navigationController = rememberNavController()
