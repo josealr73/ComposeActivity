@@ -3,29 +3,17 @@ package com.example.composeactivity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.activity.viewModels
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavType
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
-import com.example.composeactivity.components.MyScaffold
-import com.example.composeactivity.components.Screen1
-import com.example.composeactivity.components.Screen2
-import com.example.composeactivity.components.Screen3
-import com.example.composeactivity.components.Screen4
-import com.example.composeactivity.components.Screen5
-import com.example.composeactivity.logininsta.LoginScreen
-import com.example.composeactivity.logininsta.LoginViewModel
-import com.example.composeactivity.model.Routes
+import com.example.composeactivity.logininsta.ui.LoginScreen
+import com.example.composeactivity.logininsta.ui.LoginViewModel
 import com.example.composeactivity.ui.theme.ComposeActivityTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -103,7 +91,9 @@ class MainActivity : ComponentActivity() {
                     // Fin COMPONENTS.KT
 
                     /** LOGIN INSTAGRAM **/
-                    LoginScreen(LoginViewModel())
+                     val loginViewModel: LoginViewModel by viewModels()
+
+                    LoginScreen(loginViewModel)
 
                     /** EJERCICIO TUITS **/
                     // TuitComponent()
@@ -168,7 +158,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     ComposeActivityTheme {
-        LoginScreen(LoginViewModel())
         /** NAVIGATION **/
         /*
         val navigationController = rememberNavController()
