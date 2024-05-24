@@ -91,7 +91,7 @@ class MainActivity : ComponentActivity() {
                     // Fin COMPONENTS.KT
 
                     /** LOGIN INSTAGRAM **/
-                     val loginViewModel: LoginViewModel by viewModels()
+                    val loginViewModel: LoginViewModel by viewModels()
 
                     LoginScreen(loginViewModel)
 
@@ -112,90 +112,98 @@ class MainActivity : ComponentActivity() {
                     /** NAVIGATION **/
                     // Controla los estados de la navegación
 
-/*                    val navigationController = rememberNavController()
-                    NavHost(
-                        navController = navigationController,
-                        startDestination = Routes.Pantalla1.route
-                    ) {
-                        composable(Routes.Pantalla1.route) {
-                            Screen1(navigationController)
-                        }
+                    /*                    val navigationController = rememberNavController()
+                                        NavHost(
+                                            navController = navigationController,
+                                            startDestination = Routes.Pantalla1.route
+                                        ) {
+                                            composable(Routes.Pantalla1.route) {
+                                                Screen1(navigationController)
+                                            }
 
-                        composable(Routes.Pantalla2.route) {
-                            Screen2(navigationController)
-                        }
+                                            composable(Routes.Pantalla2.route) {
+                                                Screen2(navigationController)
+                                            }
 
-                        composable(Routes.Pantalla3.route) {
-                            Screen3(navigationController)
-                        }
+                                            composable(Routes.Pantalla3.route) {
+                                                Screen3(navigationController)
+                                            }
 
-                        composable(
-                            Routes.Pantalla4.route,
-                            arguments = listOf(navArgument("age") { type = NavType.IntType })
-                        ) { backStackEntry ->
-                            Screen4(
-                                navigationController, backStackEntry.arguments?.getInt("age") ?: 0
-                            )
-                        }
+                                            composable(
+                                                Routes.Pantalla4.route,
+                                                arguments = listOf(navArgument("age") { type = NavType.IntType })
+                                            ) { backStackEntry ->
+                                                Screen4(
+                                                    navigationController, backStackEntry.arguments?.getInt("age") ?: 0
+                                                )
+                                            }
 
-                        composable(
-                            Routes.Pantalla5.route,
-                            arguments = listOf(navArgument("name", { defaultValue = "" }))
-                        ) { backStackEntry ->
-                            Screen5(
-                                navigationController,
-                                backStackEntry.arguments?.getString("name")
-                            )
-                        }
-                    }
-                }*/
+                                            composable(
+                                                Routes.Pantalla5.route,
+                                                arguments = listOf(navArgument("name", { defaultValue = "" }))
+                                            ) { backStackEntry ->
+                                                Screen5(
+                                                    navigationController,
+                                                    backStackEntry.arguments?.getString("name")
+                                                )
+                                            }
+                                        }
+
+
+                                    }*/
+
+                    /** ANIMATION **/
+                    // ColorAnimationSingle()
+                    // SizeAnimation()
+                    // VisibilityAnimation()
+                    // CrossfadeExampleAnimation()
+                }
             }
         }
     }
-}
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ComposeActivityTheme {
-        /** NAVIGATION **/
-        /*
-        val navigationController = rememberNavController()
-        NavHost(
-            navController = navigationController,
-            startDestination = Routes.Pantalla1.route
-        ) {
-            composable(Routes.Pantalla1.route) {
-                Screen1(navigationController)
-            }
+    @Preview(showBackground = true)
+    @Composable
+    fun GreetingPreview() {
+        ComposeActivityTheme {
+            /** NAVIGATION **/
+            /*
+            val navigationController = rememberNavController()
+            NavHost(
+                navController = navigationController,
+                startDestination = Routes.Pantalla1.route
+            ) {
+                composable(Routes.Pantalla1.route) {
+                    Screen1(navigationController)
+                }
 
-            composable(Routes.Pantalla2.route) {
-                Screen2(navigationController)
-            }
+                composable(Routes.Pantalla2.route) {
+                    Screen2(navigationController)
+                }
 
-            composable(Routes.Pantalla3.route) {
-                Screen3(navigationController)
-            }
+                composable(Routes.Pantalla3.route) {
+                    Screen3(navigationController)
+                }
 
-            composable(
-                Routes.Pantalla4.route,
-                arguments = listOf(navArgument("age") { type = NavType.IntType })
-            ) { backStackEntry ->
-                Screen4(
-                    navigationController, backStackEntry.arguments?.getInt("age") ?: 0
-                )
-            }
+                composable(
+                    Routes.Pantalla4.route,
+                    arguments = listOf(navArgument("age") { type = NavType.IntType })
+                ) { backStackEntry ->
+                    Screen4(
+                        navigationController, backStackEntry.arguments?.getInt("age") ?: 0
+                    )
+                }
 
-            composable(
-                Routes.Pantalla5.route,
-                arguments = listOf(navArgument("name", { defaultValue = "" }))
-            ) { backStackEntry ->
-                Screen5(
-                    navigationController,
-                    backStackEntry.arguments?.getString("name")
-                )
-            }
-            */
+                composable(
+                    Routes.Pantalla5.route,
+                    arguments = listOf(navArgument("name", { defaultValue = "" }))
+                ) { backStackEntry ->
+                    Screen5(
+                        navigationController,
+                        backStackEntry.arguments?.getString("name")
+                    )
+                }
+                */
         }
     }
 }
