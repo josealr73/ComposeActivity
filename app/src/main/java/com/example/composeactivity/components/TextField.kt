@@ -29,23 +29,28 @@ fun MyText() {
         Text(text = "Esto es un ejemplo", fontWeight = FontWeight.ExtraBold)
         Text(text = "Esto es un ejemplo", fontWeight = FontWeight.Light)
         Text(text = "Esto es un ejemplo", fontFamily = FontFamily.Cursive)
+
         Text(
             text = "Esto es un ejemplo",
             textDecoration = TextDecoration.LineThrough
         )
+
         Text(
             text = "Esto es un ejemplo",
             textDecoration = TextDecoration.Underline
         )
+
         Text(
             text = "Esto es un ejemplo",
             textDecoration = TextDecoration.combine(
                 listOf(TextDecoration.Underline, TextDecoration.LineThrough)
             )
         )
+
         Text(text = "Esto es un ejemplo", fontSize = 30.sp)
     }
 }
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
