@@ -5,11 +5,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -17,12 +17,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Devices.NEXUS_5X
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.composeactivity.components.MyButton
-import com.example.composeactivity.components.MyRadioButton
-import com.example.composeactivity.components.MyRadioButtonList
-import com.example.composeactivity.components.MyText
-import com.example.composeactivity.logininsta.ui.LoginScreen
+import com.example.composeactivity.ejercicios.Ejercicio1
+import com.example.composeactivity.ejercicios.EjercicioConstraintLayout
+import com.example.composeactivity.ejercicios.TuitComponent
+import com.example.composeactivity.layouts.MyBasicConstraintLayout
+import com.example.composeactivity.layouts.MyColumn
+import com.example.composeactivity.layouts.MyComplexLayout
+import com.example.composeactivity.layouts.MyRow
 import com.example.composeactivity.logininsta.ui.LoginViewModel
 import com.example.composeactivity.ui.theme.ComposeActivityTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,8 +43,25 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    /** COMPONENTS **/
                     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    /** LAYOUTS **/
+                        /** BOX **/
+                        // MyBox()
+
+                        /** COLUMN/ROW **/
+                        // MyColumn()
+                        // MyRow()
+                        // MyComplexLayout()
+
+                        /** CONSTRAINT LAYOUT **/
+                        // MyBasicConstraintLayout()
+
+                    /** EJERCICIOS **/
+                    // Ejercicio1()
+                    // TuitComponent()
+                    // EjercicioConstraintLayout()
+
+                    /** COMPONENTS **/
                         /** TEXT y TEXTFIELD **/
                         // MyText()
                         // MyTextField(name = , onValueChanged = )
@@ -47,7 +69,7 @@ class MainActivity : ComponentActivity() {
                         // MyTextFieldOutlined()
 
                         /** BUTTON **/
-                         MyButton()
+                        // MyButton()
                         // MyOutlinedButton()
                         // MyTextButton()
 
@@ -68,6 +90,11 @@ class MainActivity : ComponentActivity() {
                         // MyCheckBoxWithText()
                         // MyTriStatusCheckbox()
                         // ¿? MyCheckBoxWithTextCompleted(getOptions(titles = "Paco"))
+
+                        /** COMPONENTS 2 **/
+                        // MyScaffold()
+                        // MyBottomNavigation()
+
 
                         /** RADIOBUTTON **/
                         var selected by remember {
@@ -107,9 +134,6 @@ class MainActivity : ComponentActivity() {
                         val loginViewModel: LoginViewModel by viewModels()
                         // LoginScreen(loginViewModel)
 
-                        /** EJERCICIO TUITS **/
-                        // TuitComponent()
-
                         /** RECYCLER VIEW **/
                         // SimpleRecyclerView()
                         // SuperHeroView()
@@ -117,9 +141,7 @@ class MainActivity : ComponentActivity() {
                         // SuperHeroStickyView()
                         // SuperHeroSpecialControlView()
 
-                        /** COMPONENTS 2 **/
-                        // MyScaffold()
-                        // MyBottomNavigation()
+
 
                         /** NAVIGATION **/
                         // Controla los estados de la navegación
@@ -174,6 +196,26 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    /** PREVIEWS **/
+    /*@Preview(
+        widthDp = 50,
+        heightDp = 50,
+        showBackground = true,
+        showSystemUi = true,
+        device = NEXUS_5X
+    )
+    @Composable
+    fun PreviewExample() {
+        Box(
+            modifier = Modifier
+                // ¿? .padding(start = 50.dp)
+                .fillMaxSize(),
+            contentAlignment = Alignment.Center,
+        ) {
+            Text("Ejemplo Pablo", Modifier.fillMaxSize())
+        }
+    }*/
 
     @Preview(showBackground = true)
     @Composable

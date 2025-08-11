@@ -52,7 +52,6 @@ android {
 }
 
 dependencies {
-
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation("androidx.activity:activity-compose:1.7.0")
@@ -78,5 +77,6 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     implementation("com.google.dagger:hilt-android:2.47")
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
     kapt ("com.google.dagger:hilt-android-compiler:2.47")
 }

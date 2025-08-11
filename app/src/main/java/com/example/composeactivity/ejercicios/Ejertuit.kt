@@ -1,4 +1,4 @@
-package com.example.composeactivity.ejertuit
+package com.example.composeactivity.ejercicios
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
